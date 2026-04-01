@@ -18,7 +18,7 @@ def main():
     cache = compute_hvlcs(a, b, values)
 
     # result
-    max_value = None  # placeholder
+    max_value = cache[-1][-1]
 
     # reconstruct sequence
     sequence = backtrack_sequence(cache, a, b, values)
