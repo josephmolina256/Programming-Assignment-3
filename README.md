@@ -39,11 +39,13 @@ python3 src/main.py input/test4.txt
 ```
 
 # Written Component
-Question 1: Empirical Comparison
+## Question 1: Empirical Comparison
 Use at least 10 nontrivial input files (i.e., contain strings of length at least 25). Graph the
 runtime of the 10 files.
 
-Question 2: Recurrence Equation
+<img src="output/Figure_1.png" alt="Runtime Graph" style="width: 50%; height: 50%;"/>
+
+## Question 2: Recurrence Equation
 Give a recurrence that is the basis of a dynamic programming algorithm to compute the
 HVLCS of strings A and B. You must provide the appropriate base cases, and explain why
 your recurrence is correct.
@@ -78,6 +80,28 @@ your recurrence is correct.
                 = max(OPT(i-1, j), OPT(i, j-1))            if Ai != Bj
 
 
-Question 3: Big-Oh
+## Question 3: Big-Oh
 Give pseudocode of an algorithm to compute the length of the HVLCS of given strings A
 and B. What is the runtime of your algorithm?
+
+Psuedocode:
+
+        def compute_hvlcs(a, b, values)
+
+                String A is defined by characters A_1, A_2, ..., A_n
+                String B is defined by characters B_1, B_2, ..., B_m
+
+                M is a 2D array of size n by m where n and m are the lengths of strings A and B. All values are initialized to 0
+
+                for i=1 to n:
+                        for j=1 to m:
+                        if A_{i-1} equals B_{j-1}:
+                                M[i][j] = M[i-1][j-1] + Value of A_{i-1}
+                        else:
+                                M[i][j] = max{M[i - 1][j], M[i][j - 1]}
+
+                return M[n][m]
+
+Runtime:
+- The algorithm uses a 2D array of size n by m where n and m are the lengths of strings A and B.
+- The nested loops iterate through each indice of M resulting in a time complexity of O(n * m).
