@@ -28,14 +28,18 @@ def question_one():
         print(f"{test_file.name}: {elapsed_ms:.4f} ms")
 
     # Plot the runtimes
-    plt.figure(figsize=(10, 6))
-    plt.bar(labels, runtimes, color='blue')
-    plt.xlabel('Test Files')
-    plt.ylabel('Runtime (ms)')
-    plt.title('Runtime Comparison for HVLCs Computation')
-    plt.xticks(rotation=45, ha='right')
-    plt.tight_layout()
-    plt.show()
+    figure, axis = plt.subplots(figsize=(10, 6))
+    axis.bar(labels, runtimes, color="blue")
+    axis.set_xlabel("Test Files")
+    axis.set_ylabel("Runtime (ms)")
+    axis.set_title("Runtime Comparison for HVLCS Computation")
+    axis.tick_params(axis="x", rotation=45)
+    figure.tight_layout()
+
+    output_dir = Path(__file__).resolve().parent.parent / "output"
+    output_dir.mkdir(exist_ok=True)
+    figure.savefig(output_dir / "Figure_1.png", dpi=200)
+    plt.close(figure)
 
 
 
