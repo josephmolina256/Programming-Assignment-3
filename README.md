@@ -26,6 +26,7 @@ The first command run (`src/main.py`) prints required output:
 
 
 The second command run (`src/benchmark.py`) prints runtime for `input/test1.txt` through `input/test10.txt` for use in Q1 below. 
+It also saves the graph to `output/Figure_1.png`.
 
 # Program usage
 ```bash
@@ -79,6 +80,8 @@ your recurrence is correct.
     OPT(i, j)   = value of Ai + OPT(i-1, j-1)              if Ai == Bj
                 = max(OPT(i-1, j), OPT(i, j-1))            if Ai != Bj
 
+The recurrence is correct because it considers every possible way an optimal common subsequence can end: if Ai and Bj match, we can take that character and reduce to the smaller prefix problem, and if they do not match, one of the two characters must be excluded. 
+The base case is correct because when either prefix is empty there is no common subsequence, so the best value is 0.
 
 ## Question 3: Big-Oh
 Give pseudocode of an algorithm to compute the length of the HVLCS of given strings A
@@ -104,4 +107,4 @@ Psuedocode:
 
 Runtime:
 - The algorithm uses a 2D array of size n by m where n and m are the lengths of strings A and B.
-- The nested loops iterate through each indice of M resulting in a time complexity of O(n * m).
+- The nested loops iterate through all indices of M resulting in a time complexity of O(n * m).
