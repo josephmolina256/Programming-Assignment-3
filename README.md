@@ -1,11 +1,44 @@
-Usage:
+# Programming Assignment 3 - Highest Value Longest Common Sequence
 
+# Team
+- Josh Caron, UFID = 40792496
+- Joseph Molina, UFID = 37598582
+
+# To compile/build the code
+- No compliation or build step required. 
+- Ensure Python3.x installed.
+
+```bash
+python3 --version
 ```
-    python src/main.py <input_file>
+
+# Reproducibility
+```bash
+git clone <repo-url>
+cd Programming-Assignment-3
+python3 src/main.py input/test1.txt
+python3 src/benchmark.py
 ```
 
+The first command run (`src/main.py`) prints required output:
+- Maximum HVLCS value (part a)
+- One optimal subsequence (part b)
 
 
+The second command run (`src/benchmark.py`) prints runtime for `input/test1.txt` through `input/test10.txt` for use in Q1 below. 
+
+# Program usage
+```bash
+python3 src/main.py <input_file>
+```
+
+Example:
+
+```bash
+python3 src/main.py input/test4.txt
+```
+
+# Written Component
 Question 1: Empirical Comparison
 Use at least 10 nontrivial input files (i.e., contain strings of length at least 25). Graph the
 runtime of the 10 files.
